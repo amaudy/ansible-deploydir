@@ -1,0 +1,25 @@
+---
+# tasks file for amaudy.preparedir
+- name: Create project root folder
+  ansible.builtin.file:
+    path: '/var/www/{{ project_name }}'
+    state: directory
+    owner: '{{ deploy_user }}'
+    group: '{{ deploy_user }}'
+    mode: '0755'
+
+- name: Create share folder
+  ansible.builtin.file:
+    path: '/var/www/{{ project_name }}/share'
+    state: directory
+    owner: '{{ deploy_user }}'
+    group: '{{ deploy_user }}'
+    mode: '0755'
+
+- name: Create project configuration folder
+  ansible.builtin.file:
+    path: '/var/www/{{ project_name }}/share/config'
+    state: directory
+    owner: '{{ deploy_user }}'
+    group: '{{ deploy_user }}'
+    mode: '0755'
